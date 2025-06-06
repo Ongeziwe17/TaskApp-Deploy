@@ -5,7 +5,7 @@ name: taskapp
 
 image:
   repository: ongeziwe17/taskapp
-  tag: 7d39b11
+  tag: 7576642
 
 service:
   type: NodePort
