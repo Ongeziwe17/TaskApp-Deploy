@@ -1,7 +1,8 @@
-# service.yaml
+# This file defines a Kubernetes Service for the TaskApp application.
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: {{ .Release.Namespace }}
   name: {{ .Values.name }}
   labels:
     app: {{ .Values.name }}

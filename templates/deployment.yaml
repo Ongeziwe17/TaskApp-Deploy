@@ -1,7 +1,8 @@
-# deployment.yaml
+# This file defines a Kubernetes Deployment for the TaskApp application.
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: {{ .Release.Namespace }}
   name: {{ .Values.name }}
   labels:
     app: {{ .Values.name }}
@@ -24,3 +25,14 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+          env:
+          - name: DB_NAME
+            valueFrom:
+              secretKeyRef:
+                name: credentials
+                key: DB_NAME
+          - name: SA_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: credentials
+                key: SA_PASSWORD

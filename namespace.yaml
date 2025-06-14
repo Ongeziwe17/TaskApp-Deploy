@@ -1,0 +1,5 @@
+# This file defines a Kubernetes Namespace for the TaskApp application.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: taskapp
