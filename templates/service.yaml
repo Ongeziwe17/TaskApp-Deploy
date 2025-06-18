@@ -1,4 +1,5 @@
 # This file defines a Kubernetes Service for the TaskApp application.
+# It exposes the application on a specified port and uses a selector to route traffic to the appropriate pods.
 apiVersion: v1
 kind: Service
 metadata:

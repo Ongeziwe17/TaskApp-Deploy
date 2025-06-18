@@ -1,4 +1,5 @@
-# This file defines a Kubernetes Deployment for the TaskApp application.
+# This file defines a Kubernetes Deployment for the TaskApp application.\
+# It includes the application container, environment variables, and connection strings.
 apiVersion: apps/v1
 kind: Deployment
 metadata:
