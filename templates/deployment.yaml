@@ -26,13 +26,9 @@ spec:
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           env:
-          - name: DB_NAME
+          - name: ConnectionStrings__DefaultConnection
             valueFrom:
               secretKeyRef:
                 name: credentials
-                key: DB_NAME
-          - name: SA_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: credentials
-                key: SA_PASSWORD
+                key: ConnectionStrings__DefaultConnection
+
