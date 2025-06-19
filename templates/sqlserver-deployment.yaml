@@ -17,7 +17,15 @@ spec:
     spec:
       containers:
         - name: sqlserver
-          image: mcr.microsoft.com/mssql/server:2019-latest
+          image: mcr.microsoft.com/mssql/server:2022-latest
+          resources:
+            requests:
+              memory: "800Mi"
+              cpu: "1"
+            limits:
+              memory: "2Gi"
+              cpu: "2"
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 1433
           env:
@@ -30,3 +38,9 @@ spec:
                   key: SA_PASSWORD
             - name: MSSQL_PID
               value: "Developer"
+          readinessProbe:
+            tcpSocket:
+              port: 1433
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            failureThreshold: 3
