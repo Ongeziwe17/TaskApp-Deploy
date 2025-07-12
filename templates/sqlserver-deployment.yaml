@@ -6,7 +6,7 @@ metadata:
   name: sqlserver
   namespace: {{ .Release.Namespace }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: sqlserver
@@ -23,7 +23,7 @@ spec:
               memory: "800Mi"
               cpu: "1"
             limits:
-              memory: "2Gi"
+              memory: "1Gi"
               cpu: "2"
           imagePullPolicy: IfNotPresent
           ports:
